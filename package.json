@@ -1,0 +1,17 @@
+{
+    "name": "desafio",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/Dionatas1114/Primeiro-Desafio-Back-end.git",
+    "author": "master <62730023+Dionatas1114@users.noreply.github.com>",
+    "license": "MIT",
+    "Scripts": {
+        "dev": "nodemon index.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}

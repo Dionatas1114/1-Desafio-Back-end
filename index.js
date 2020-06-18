@@ -1,15 +1,48 @@
-Faça uma aplicação back - end para cadastrar usuários:
-    você terá uma lista vazia e recebera os seguintes dados de uma rota:
+const express = require('express');
 
-    Email
-Nome
-Idade
-Telefone
+const server = express();
 
-Em seguida adicione o objeto com esses dados a lista.
-Você também deve fazer uma rota para visualizar todos os usuários cadastrados.
+server.use(express.json());
 
-DESAFIO DENTRO DO DESAFIO😆
-O desafio é atualizar um dado de um usuário já cadastrado.
+const list = [];
 
-*Obs: deve ser entregue via github.
+server.get('/', (req, res) => {
+    return res.json({
+        result: 'Bem vindo à área de cadastramento'
+    });
+});
+
+server.post('/user', (req, res) => {
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const idade = req.body.idade;
+    const telefone = req.body.telefone;
+
+    const user = {
+        nome,
+        email,
+        idade,
+        telefone
+    };
+
+    list.push(user);
+
+    return res.json(user);
+});
+
+server.get('/list', (req, res) => {
+    return res.json({ list });
+});
+
+server.put('/update', (req, res) => {
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const idade = req.body.idade;
+    const telefone = req.body.telefone;
+
+    return res.json({
+        result: 'Dados atualizados com sucesso!'
+    });
+});
+
+server.listen(4000);
